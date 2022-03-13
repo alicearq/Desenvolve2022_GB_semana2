@@ -1,0 +1,61 @@
+<canvas width="600" height="400" ></canvas>
+
+<script>
+
+function desenhabandeiraBrasil() {
+	
+	var tela = document.querySelector("canvas");
+	var pincel = tela.getContext('2d');
+
+	
+	pincel.fillStyle ="green";
+	pincel.fillRect(150,100, 300,200);
+
+	
+	pincel.fillStyle = "yellow";
+	pincel.beginPath();
+	pincel.moveTo(175, 200);
+	pincel.lineTo(425, 200);
+	pincel.lineTo(300, 125);
+	pincel.moveTo(425, 200);
+	pincel.lineTo(300, 275);
+	pincel.lineTo(175, 200);
+	pincel.fill();
+
+	pincel.fillStyle = "darkblue"
+	pincel.beginPath();
+	pincel.arc(300, 200, 50, 0, 2 * 3.14);
+	pincel.fill();
+}
+
+
+function desenhaBandeiraAlemanha() {
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'black';
+    pincel.fillRect(150,100, 300, + Math.round (200/3)) ;
+
+    pincel.fillStyle = 'red';
+    pincel.fillRect(150, 166 , 300, + Math.round (200/3)) ;
+
+    pincel.fillStyle = 'yellow';
+    pincel.fillRect(150, 233, 300, + Math.round (200/3)) ;
+}
+
+var bandeiraBrasil = true;
+
+function trocaBandeira(){
+	
+	if(bandeiraBrasil){
+		desenhabandeiraBrasil();
+
+	}else {
+		desenhaBandeiraAlemanha();
+	}
+		bandeiraBrasil = !bandeiraBrasil;
+}
+
+setInterval(trocaBandeira, 3000);
+
+</script>
